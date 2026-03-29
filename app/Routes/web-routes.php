@@ -7,6 +7,8 @@ declare(strict_types=1);
  */
 
 use App\Controllers\HomeController;
+use App\Controllers\UserController;
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -21,16 +23,9 @@ return static function (Slim\App $app): void {
     $app->get('/home', [HomeController::class, 'index'])
         ->setName('home.index');
 
-    // A route to display PHP configuration information.
-    $app->get('/phpinfo', function (Request $request, Response $response, $args) {
-        ob_start();
-        phpinfo();
-        $phpinfo = ob_get_clean();
-        $response->getBody()->write($phpinfo);
-        return $response;
-    });
+    $app->get('/users', [UserController::class, 'index'])
+        ->setName('users.index');
 
-    // A route to test runtime error handling and custom exceptions.
     $app->get('/error', function (Request $request, Response $response, $args) {
         throw new \Slim\Exception\HttpBadRequestException($request, "This is a runtime error. Something went wrong");
     });
