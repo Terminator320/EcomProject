@@ -1,4 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ticketmaestrix/repositories/Ticketmaestrix/Views/homeView.php
+    - export DEPLOYPATH=/home/ticketmaestrix/repositories/Ticketmaestrix/Views/
