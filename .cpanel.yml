@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/Ticketmaestrix/public_html
+    - /bin/rsync -av --delete ./ $DEPLOYPATH
+    - echo "Deployment complete!"
