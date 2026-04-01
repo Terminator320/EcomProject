@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while read oldrev newrev ref
+do
+  if [ "$ref" = "refs/heads/main" ]; then
+    git --work-tree=/home/Ticketmaestrix/public_html --git-dir=$(pwd) checkout -f
+  fi
+done
